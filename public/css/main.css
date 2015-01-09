@@ -1,0 +1,83 @@
+/*Custom styles*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* background-size: cover;를 IE 8에서 사용하려면;
+.selector {
+    background-size: cover;
+    -ms-behavior: url(backgroundsize.min.htc)
+}
+*/
+
+
+/* IE7이하일때 나오는 업데이트하는 메세지. */
+.updateIE {
+    background: #aaa;
+    color: #000;
+    padding: 22px 0;
+}
+
+/* 클리어픽스. */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/************************
+종이에 프린트 할때 컨텐트만 프린트하도록 설정
+************************/
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a[href^="http:"]::after {
+        content: " [" attr(href)"]";
+        color:blue;
+    }
+    @page {
+        margin: .5cm;
+    }
+    @page :first{
+        margin-top: 2cm;
+    }
+    h1,h2,ul {
+        page-break-after avoid;
+    }
+    p {
+        orphans: 3;
+        widows: 3;
+        font-size: 11pt;
+    }
+}
